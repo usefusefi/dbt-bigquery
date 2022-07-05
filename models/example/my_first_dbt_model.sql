@@ -6,15 +6,25 @@
 
     Try changing "table" to "view" below
 */
+--   {%- for i in range(1, 10) %}
+--       select {{ i }} as my_column
+  
+--       {%- if not loop.last %}
+--           union all 
+--       {% endif %}
+  
+--   {%- endfor %}
 
 {{ config(materialized='table') }}
 
 with source_data as (
 
-    select 1 as id
+{%- for i in range(1,11) %}
+    
+    select {{ i }} as id, cast(current_date() as string format 'dd-Mon-YYYY') as c_date
     union all
-    select null as id
-
+{%- endfor %}
+    select null,null as id
 )
 
 select *
