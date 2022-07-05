@@ -19,12 +19,11 @@
 
 with source_data as (
 
-{%- for i in range(1,11) %}
-    
-    select {{ i }} as id, cast(current_date() as string format 'dd-Mon-YYYY') as c_date
-    union all
-{%- endfor %}
-    select null,null as id
+    {%- for i in range(1,11) %}
+        select {{ i }} as id, cast(current_date() as string format 'dd-Mon-YYYY') as c_date
+        union all
+    {%- endfor %}
+        select null,null as id
 )
 
 select *
