@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'dbt_bigquery'
+name: 'dbt_bigquery_new'
 version: '1.0.0'
 config-version: 2
 
@@ -32,7 +32,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  dbt_bigquery:
+  dbt_bigquery_new:
       # Applies to all files under models/.../
       staging:
           materialized: view
@@ -42,7 +42,7 @@ vars:
   payment_type_values: [1, 2, 3, 4, 5, 6]
 
 seeds: 
-    dbt_bigquery:
+    dbt_bigquery_new:
         taxi_zone_lookup:
             +column_types:
                 locationid: numeric
